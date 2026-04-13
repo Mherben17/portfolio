@@ -9,6 +9,44 @@ A simple, modern, and fully editable portfolio website template designed specifi
 3. **Customize**: Edit `styles.css` to change colors, fonts, or layout
 4. **Deploy**: Upload to GitHub Pages, Netlify, Vercel, or any hosting service
 
+## Publish to your GitHub (this folder is already a Git repo)
+
+Your project is initialized with Git and has an initial commit on branch `main`. I cannot log into **your** GitHub account from here, so you need to sign in once on your PC, then push.
+
+### Option A — GitHub CLI (fastest)
+
+1. Open **PowerShell** or **Git Bash** in this folder:
+   `c:\Users\LENOVO L590\Music\MillanoM_Portfolio`
+2. Set your commit identity (one-time, global):
+   - `git config --global user.name "Your Name"`
+   - `git config --global user.email "you@example.com"`
+3. Sign in to GitHub:
+   - `gh auth login`
+   - Choose **GitHub.com**, **HTTPS**, authenticate in the browser.
+4. Create the remote repo and push (pick a public name, e.g. `portfolio`):
+   - `gh repo create portfolio --public --source=. --remote=origin --push`
+
+After that, your code will be at `https://github.com/YOUR_USERNAME/portfolio` (URL depends on the name you chose).
+
+### Option B — GitHub website (no CLI)
+
+1. On GitHub: **New repository** → name it (e.g. `portfolio`) → **Create** (no README if the repo is empty).
+2. In this folder, add the remote and push (replace `YOUR_USERNAME` and `portfolio`):
+
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
+git push -u origin main
+```
+
+### Turn it into a live portfolio URL (GitHub Pages)
+
+1. On the repo: **Settings → Pages**
+2. **Build and deployment**: **Deploy from a branch**
+3. Branch: **main**, folder: **/ (root)** → Save
+4. After a minute, the site is usually at:
+   `https://YOUR_USERNAME.github.io/portfolio/`  
+   (If the repo is named `YOUR_USERNAME.github.io`, the site is at `https://YOUR_USERNAME.github.io/` instead.)
+
 ## 📝 What to Edit
 
 ### Essential Edits (Must Do)
