@@ -138,17 +138,5 @@
     });
   }
 
-  // ==========================================================
-  // Form Handling (Basic)
-  // ==========================================================
-  const contactForm = document.querySelector('.form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      // Form will use mailto: action by default
-      // For production, replace with Formspree, Netlify Forms, or backend API
-      console.log('Form submitted - using mailto: action');
-    });
-  }
-
   console.log('Portfolio template loaded successfully!');
 })();
