@@ -38,25 +38,6 @@
   }
 
   // ==========================================================
-  // Theme Toggle (Light/Dark)
-  // ==========================================================
-  const themeToggle = document.querySelector('[data-theme-toggle]');
-  const html = document.documentElement;
-
-  // Get saved theme or default to dark
-  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
-  html.setAttribute('data-theme', savedTheme);
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('portfolio-theme', newTheme);
-    });
-  }
-
-  // ==========================================================
   // Active Navigation Link Highlighting
   // ==========================================================
   const sections = document.querySelectorAll('section[id]');
@@ -118,25 +99,4 @@
     });
   });
 
-  // ==========================================================
-  // Header Scroll Effect (Optional)
-  // ==========================================================
-  const header = document.querySelector('[data-header]');
-  let lastScroll = 0;
-
-  if (header) {
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-
-      if (currentScroll > 100) {
-        header.style.backdropFilter = 'blur(16px)';
-      } else {
-        header.style.backdropFilter = 'blur(12px)';
-      }
-
-      lastScroll = currentScroll;
-    });
-  }
-
-  console.log('Portfolio template loaded successfully!');
 })();
