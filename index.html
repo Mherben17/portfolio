@@ -318,7 +318,7 @@
               </div>
             </div>
 
-            <form class="card form" action="mailto:mherbsmillano@gmail.com" method="post" enctype="text/plain">
+            <form class="card form" id="contact-form" action="#">
               <h3 class="card__title">Message</h3>
               <label class="field">
                 <span class="field__label">Name</span>
@@ -333,7 +333,7 @@
                 <textarea class="field__input field__input--area" name="message" placeholder="Hello, I’d like to talk about..." required></textarea>
               </label>
               <button class="btn btn--primary" type="submit">Send</button>
-              
+              <p class="form__hint" id="form-status" aria-live="polite"></p>
             </form>
           </div>
         </div>
