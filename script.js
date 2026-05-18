@@ -77,6 +77,55 @@
   }
 
   // ==========================================================
+  // Contact Form Submission
+  // ==========================================================
+  const contactForm = document.querySelector('#contact-form');
+  const formStatus = document.querySelector('#form-status');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      if (formStatus) {
+        formStatus.textContent = 'Sending your message...';
+        formStatus.style.color = 'var(--text)';
+      }
+
+      const formData = new FormData(contactForm);
+      const action = contactForm.getAttribute('action');
+
+      try {
+        const response = await fetch(action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            Accept: 'application/json',
+          },
+        });
+
+        if (response.ok) {
+          if (formStatus) {
+            formStatus.textContent = 'Message sent successfully. Thank you!';
+            formStatus.style.color = 'var(--text)';
+          }
+          contactForm.reset();
+        } else {
+          const data = await response.json();
+          if (formStatus) {
+            formStatus.textContent = data.message || 'There was an issue sending your message. Please try again later.';
+            formStatus.style.color = '#f97316';
+          }
+        }
+      } catch (error) {
+        if (formStatus) {
+          formStatus.textContent = 'Unable to send right now. Please try again later.';
+          formStatus.style.color = '#f97316';
+        }
+      }
+    });
+  }
+
+  // ==========================================================
   // Smooth Scroll for Anchor Links (if not using CSS)
   // ==========================================================
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
