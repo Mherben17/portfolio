@@ -77,40 +77,6 @@
   }
 
   // ==========================================================
-  // Contact Form Mailto Submit
-  // ==========================================================
-  const contactForm = document.querySelector('#contact-form');
-  const formStatus = document.querySelector('#form-status');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-
-      const formData = new FormData(contactForm);
-      const name = formData.get('name')?.toString().trim();
-      const email = formData.get('email')?.toString().trim();
-      const message = formData.get('message')?.toString().trim();
-
-      if (!name || !email || !message) {
-        if (formStatus) {
-          formStatus.textContent = 'Please fill in all fields before sending.';
-        }
-        return;
-      }
-
-      const subject = encodeURIComponent(`Portfolio message from ${name}`);
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-      const mailtoLink = `mailto:mherbsmillano@gmail.com?subject=${subject}&body=${body}`;
-
-      if (formStatus) {
-        formStatus.textContent = 'Opening your email app...';
-      }
-
-      window.location.href = mailtoLink;
-    });
-  }
-
-  // ==========================================================
   // Smooth Scroll for Anchor Links (if not using CSS)
   // ==========================================================
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
